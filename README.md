@@ -1,5 +1,3 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "**TODO**" with details specific to your project. Remove the "TODO" lines.
-
 # Pokemon Run
 
 ## Overview
