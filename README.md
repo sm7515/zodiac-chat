@@ -1,111 +1,67 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "**TODO**" with details specific to your project. Remove the "TODO" lines.
 
-# Shoppy Shoperson
+# Pokemon Run
 
 ## Overview
 
-(**\_TODO**: a brief one or two paragraph, high-level description of your project\_)
-
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Like the T-Rex game made by Google, Pokemon Run is a mobile game in which users can choose their favorite pokemon and gain points by preventing it from hitting the obstacles.
 
 ## Data Model
 
-(**\_TODO**: a description of your application's data and their relationships to each other\_)
-
-The application will store Users, Lists and Items
-
-- users can have multiple lists (via references)
-- each list can have multiple items (by embedding)
-
-(**\_TODO**: sample documents\_)
+The application will store Users and Pokemon.
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "KIRACHI",
   hash: // a password hash,
-  lists: // an array of references to List documents
-}
-```
-
-An Example List with Embedded Items:
-
-```javascript
-{
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
+  highestScore: 100,
+  character: 'pikachu',
   createdAt: // timestamp
 }
 ```
 
-## [Link to Commented First Draft Schema](db.js)
+An Example Pokemon:
 
-(**\_TODO**: create a first draft of your Schemas in db.js and link to it\_)
+```javascript
+{
+  name: 'pikachu',
+  image: // image url or base64,
+}
+```
+
+## [Link to Commented First Draft Schema](./backend/db.js)
 
 ## Wireframes
 
-(**\_TODO**: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.\_)
+/game - page for the actual game
 
-/list/create - page for creating a new shopping list
-
-![list create](documentation/list-create.png)
-
-/list - page for showing all shopping lists
-
-![list](documentation/list.png)
-
-/list/slug - page for showing specific shopping list
-
-![list](documentation/list-slug.png)
+![game](./documentation/game.png)
 
 ## Site map
 
-(**\_TODO**: draw out a site map that shows how pages are related to each other\_)
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+Here's the [sitemap](./documentation/sitemap.png)
 
 ## User Stories or Use Cases
 
-(**\_TODO**: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)\_)
-
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can choose a pokemon to play
+4. as a user, I can play the game and gain points
 
 ## Research Topics
 
-(**\_TODO**: the research topics that you're planning on working on along with their point values... and the total points of research topics listed\_)
-
 - (5 points) Integrate user authentication
   - I'm going to be using passport for user authentication
-  - And account has been made for testing; I'll email you the password
-  - see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-  - see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-- (4 points) Perform client side form validation using a JavaScript library
-  - see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-  - if you put in a number that's greater than 5, an error message will appear in the dom
-- (5 points) vue.js
-  - used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+- (3 points) Perform client side form validation using Formik
+- (5 points) React-native.js
+  - used React-native.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
-10 points total out of 8 required points (**\_TODO**: addtional points will **not** count for extra credit\_)
-
-## [Link to Initial Main Project File](app.js)
-
-(**\_TODO**: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js\_)
+## [Link to Initial Main Project File](backend/app.js)
 
 ## Annotations / References Used
 
-(**\_TODO**: list any tutorials/references/etc. that you've based your code off of\_)
-
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. [passport.js authentication docs](http://passportjs.org/docs)
+2. [tutorial on react-native.js](https://reactnative.dev/docs/getting-started)
+3. [react-native-game-engine](https://github.com/bberak/react-native-game-engine)
