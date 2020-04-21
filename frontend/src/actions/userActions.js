@@ -5,10 +5,10 @@ export function setName(name) {
   };
 }
 
-export function setDob(dob) {
+export function setId(id) {
   return {
-    type: 'SET_DOB',
-    payload: dob,
+    type: 'SET_ID',
+    payload: id,
   };
 }
 
@@ -19,16 +19,16 @@ export function setSign(sign) {
   };
 }
 
-export function setPwd(pwd) {
-  return {
-    type: 'SET_PWD',
-    payload: pwd,
-  };
-}
-
 export function setLogin(uid) {
   return {
     type: 'SET_LOGIN',
     payload: uid ? true : false,
+  };
+}
+
+export function setImg(url) {
+  return {
+    type: 'SET_IMG',
+    payload: url,
   };
 }

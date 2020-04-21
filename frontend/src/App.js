@@ -3,7 +3,13 @@ import './App.css';
 import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { setName, setDob, setPwd, setLogin } from './actions/userActions';
+import {
+  setName,
+  setSign,
+  setLogin,
+  setImg,
+  setId,
+} from './actions/userActions';
 import { setError } from './actions/errorAction';
 
 import Register from './components/register';
@@ -14,11 +20,11 @@ function App(props) {
   let uid = localStorage.getItem('uid');
   useEffect(() => {
     uid = localStorage.getItem('uid');
-  });
+  }, [uid]);
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        <Route exact path="/">
+        <Route exact path='/'>
           {!uid ? (
             <Register
               setError={props.setError}
@@ -26,24 +32,37 @@ function App(props) {
               setLogin={props.setLogin}
             />
           ) : (
-            <Redirect to="/home" />
+            <Redirect to='/home' />
           )}
         </Route>
 
-        <Route exact path="/login">
+        <Route exact path='/login'>
           {!uid ? (
             <Login
               setError={props.setError}
               error={props.error}
               setLogin={props.setLogin}
+              setName={props.setName}
+              setId={props.setId}
             />
           ) : (
-            <Redirect to="/home" />
+            <Redirect to='/home' />
           )}
         </Route>
 
-        <Route exact path="/home">
-          {uid ? <Home setLogin={props.setLogin} /> : <Redirect to="/login" />}
+        <Route exact path='/home'>
+          {uid ? (
+            <Home
+              setLogin={props.setLogin}
+              user={props.user}
+              setSign={props.setSign}
+              setImg={props.setImg}
+              setId={props.setId}
+              setName={props.setName}
+            />
+          ) : (
+            <Redirect to='/login' />
+          )}
         </Route>
       </Router>
     </div>
@@ -59,11 +78,14 @@ const mapDispatchToProps = (dispatch) => {
     setName: (name) => {
       dispatch(setName(name));
     },
-    setDob: (dob) => {
-      dispatch(setDob(dob));
+    setId: (id) => {
+      dispatch(setId(id));
     },
-    setPwd: (pwd) => {
-      dispatch(setPwd(pwd));
+    setSign: (sign) => {
+      dispatch(setSign(sign));
+    },
+    setImg: (url) => {
+      dispatch(setImg(url));
     },
     setLogin: (uid) => {
       dispatch(setLogin(uid));

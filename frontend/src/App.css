@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login,
+.register {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-image: url('https://free4kwallpapers.com/uploads/originals/2019/01/12/constellations-wallpaper.jpg');
+}
+
+.register-form,
+.login-form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  border-radius: 25px;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.register-form label,
+.login-form label {
+  text-transform: uppercase;
+  color: rgb(204, 204, 204);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.register-form input,
+.login-form input {
+  width: 100%;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+  outline: none;
+}
+
+.register-form button,
+.login-form button {
+  width: 100%;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  color: rgba(12, 16, 25);
+  font-size: 18px;
+  margin-bottom: 10px;
+  background-color: rgb(255, 254, 254, 0.7);
+}
+
+.register-form button:hover,
+.login-form button:hover {
+  color: white;
+  background-color: rgba(12, 16, 25, 0.3);
+}
+
+.error {
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  color: #00003f;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-size: cover;
+  background-image: url('https://free4kwallpapers.com/uploads/originals/2019/01/12/constellations-wallpaper.jpg');
+}
+
+.messages {
+  color: white;
+  padding: 10px 70px;
+  background-color: rgba(238, 238, 238, 0.1);
+  height: 90vh;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  overflow: auto;
+}
+
+.text-area {
+  width: 100vw;
+  background-color: rgba(12, 16, 25, 0.8);
+  height: 10vh;
+}
+
+.composer-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.composer {
+  margin: 1em;
+  background-color: rgba(12, 16, 25, 0);
+  color: white;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.25em;
+  resize: none;
+}
+
+.Message {
+  width: 90%;
+  min-height: 50px;
+  margin: 0.5em;
+  padding: 0.5em;
+  background-color: rgb(249, 247, 249, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.Message p {
+  flex-grow: 1;
+  margin: 1em 3em;
+  color: white;
+  font-weight: 500;
+}
+
+.timestamp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 300;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.profile-img {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.profile-img img {
+  width: 40px;
+}

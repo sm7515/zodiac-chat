@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Messenger from './messenger';
+import Axios from 'axios';
 
-export default function Home({ setLogin }) {
-  const logout = () => {
-    localStorage.setItem('uid', '');
-    setLogin(localStorage.getItem('uid'));
-  };
+export default function Home({ setLogin, user, setImg, setSign, setName }) {
+  let uid = localStorage.getItem('uid');
+  let [done, setDone] = useState(false);
+
+  useEffect(() => {
+    user.id = uid;
+    uid !== '' &&
+      Axios.get(`http://localhost:8080/user?id=${uid}`)
+        .then((res) => {
+          user.name = res.data.name;
+          user.sign = res.data.sign;
+          user.img = res.data.img;
+          setImg(user.img);
+          setSign(user.sign);
+          setName(user.name);
+          console.log(user);
+          done = true;
+          setDone(done);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, []);
 
   return (
-    <div>
-      <button onClick={() => logout()}>logout</button>
-      home
+    <div className='home'>
+      {user.sign !== '' && user.img !== '' && done && (
+        <Messenger user={user} setLogin={setLogin} />
+      )}
     </div>
   );
 }

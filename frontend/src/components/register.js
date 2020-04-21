@@ -9,7 +9,7 @@ export default function Register({ setError, error }) {
 
     e.preventDefault();
     axios
-      .post(`http://localhost:4000/register`, { name, pwd, dob })
+      .post(`http://localhost:8080/register`, { name, pwd, dob })
       .then(() => {
         window.location = '/login';
       })
@@ -20,24 +20,30 @@ export default function Register({ setError, error }) {
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="name">username: </label>
-        <input type="text" name="name" required />
-        <label htmlFor="dob">Date of Birth</label>
+    <div className='register'>
+      <form onSubmit={(e) => handleSubmit(e)} className='register-form'>
+        <label htmlFor='name'>username: </label>
+        <input type='text' name='name' required />
+        <label htmlFor='dob'>Date of Birth</label>
         <input
-          type="date"
-          name="dob"
+          type='date'
+          name='dob'
           max={new Date().toJSON().slice(0, 10)}
           required
         />
-        <label htmlFor="password">password</label>
-        <input type="password" name="password" minlength="6" required />
+        <label htmlFor='password'>password</label>
+        <input type='password' name='password' minlength='6' required />
 
-        <input type="submit" value="register" />
-        <a href="/login">Login</a>
+        <button type='submit'>Register</button>
+        <button
+          onClick={() => {
+            window.location = '/login';
+          }}
+        >
+          Login
+        </button>
       </form>
-      {error && <p>{error.error}</p>}
+      {error.error !== '' && <p className='error'>{error.error}</p>}
     </div>
   );
 }
