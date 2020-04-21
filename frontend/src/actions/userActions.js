@@ -22,7 +22,7 @@ export function setSign(sign) {
 export function setLogin(uid) {
   return {
     type: 'SET_LOGIN',
-    payload: uid ? true : false,
+    payload: uid === user.id ? true : false,
   };
 }
 
