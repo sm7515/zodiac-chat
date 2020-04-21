@@ -1,7 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-export default function Login({ setError, error, setLogin, setName, setId }) {
+export default function Login({
+  setError,
+  error,
+  setLogin,
+  setName,
+  setId,
+  user,
+}) {
   const handleSubmit = (e) => {
     const name = e.currentTarget.name.value;
     const pwd = e.currentTarget.password.value;

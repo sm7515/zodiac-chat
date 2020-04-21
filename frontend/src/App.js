@@ -44,6 +44,7 @@ function App(props) {
               setLogin={props.setLogin}
               setName={props.setName}
               setId={props.setId}
+              user={props.user}
             />
           ) : (
             <Redirect to='/home' />
