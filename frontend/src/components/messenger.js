@@ -16,7 +16,7 @@ class Messenger extends Component {
 
   logout() {
     localStorage.setItem('uid', '');
-    this.props.setLogin(localStorage.getItem('uid'));
+    this.props.setLogin(false);
     this.socket.disconnect();
   }
 
