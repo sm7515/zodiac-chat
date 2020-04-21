@@ -39,6 +39,11 @@ class Messenger extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    this.socket = io.connect('http://linserv1.cims.nyu.edu:23203/');
+  }
+
   componentWillUnmount() {}
 
   render() {

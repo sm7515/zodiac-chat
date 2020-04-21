@@ -19,7 +19,7 @@ class Message extends Component {
     return (
       <div className='Message' style={style}>
         <div className='profile-img' style={{ backgroundColor: `${imgBg}` }}>
-          <img src={this.props.img}></img>
+          <img src={this.props.img} alt='zodiac-sign'></img>
         </div>
         <p>{this.props.text}</p>
         <span className='timestamp'>

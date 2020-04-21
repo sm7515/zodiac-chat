@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -158,7 +159,7 @@ function saveSignScript() {
 }
 
 mongoose.connect(
-  'mongodb+srv://sijia:123@cluster0-mpgdz.mongodb.net/test?retryWrites=true&w=majority',
+  process.env.MongoURI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -172,6 +173,8 @@ mongoose.connect(
       mongoose.connection.db.listCollections().toArray(function (err, names) {
         if (names.length === 1) {
           saveSignScript();
+        } else if (!err) {
+          console.log('database connected');
         }
       });
     }
