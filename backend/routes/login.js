@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
           res.status(500).send('Internal hash error');
         } else if (result) {
           req.session.id = user._id;
-          console.log('success', req.session.id);
-          res.send(user._id);
+          console.log('success log in', req.session.id);
+          res.send({ id: user._id, name: user.username });
         } else {
           res.status(401).send('Wrong password');
         }
