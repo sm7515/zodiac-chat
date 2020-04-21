@@ -7,6 +7,7 @@ export default function Home({ setLogin, user, setImg, setSign, setName }) {
   let [done, setDone] = useState(false);
 
   useEffect(() => {
+    uid = localStorage.getItem('uid');
     user.id = uid;
     uid !== '' &&
       Axios.get(`http://linserv1.cims.nyu.edu:23203/user?id=${uid}`)
