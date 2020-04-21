@@ -19,10 +19,10 @@ export function setSign(sign) {
   };
 }
 
-export function setLogin(uid) {
+export function setLogin(bool) {
   return {
     type: 'SET_LOGIN',
-    payload: uid === user.id ? true : false,
+    payload: bool,
   };
 }
 

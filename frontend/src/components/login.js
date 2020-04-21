@@ -11,9 +11,9 @@ export default function Login({ setError, error, setLogin, setName, setId }) {
       .post(`http://linserv1.cims.nyu.edu:23203/login`, { name, pwd })
       .then((res) => {
         localStorage.setItem('uid', res.data.id);
-        setLogin(localStorage.getItem('uid'));
         setName(res.data.name);
         setId(res.data.id);
+        setLogin(user.id === localStorage.getItem('uid'));
         setError('');
       })
       .catch((err) => {
