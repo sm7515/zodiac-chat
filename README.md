@@ -2,7 +2,19 @@
 
 ## Overview
 
-Zodiac Chat is an online chat room that allows users to chat
+Zodiac Chat is an online chat room that allows users to chat with people of different zodiac signs.
+
+## Run
+
+```javascript
+cd backend
+npm install
+npm start
+
+cd frontend
+npm install
+npm start
+```
 
 ## Data Model
 
