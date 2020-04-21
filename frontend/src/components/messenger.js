@@ -21,7 +21,7 @@ class Messenger extends Component {
   }
 
   componentDidMount() {
-    this.socket = io.connect('http://localhost:8080');
+    this.socket = io.connect('http://linserv1.cims.nyu.edu:23203/');
 
     this.socket.on('connect', () => {
       console.log(this.props.user);

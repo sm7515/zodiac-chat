@@ -8,7 +8,7 @@ export default function Login({ setError, error, setLogin, setName, setId }) {
 
     e.preventDefault();
     axios
-      .post(`http://localhost:8080/login`, { name, pwd })
+      .post(`http://linserv1.cims.nyu.edu:23203/login`, { name, pwd })
       .then((res) => {
         localStorage.setItem('uid', res.data.id);
         setLogin(localStorage.getItem('uid'));

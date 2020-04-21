@@ -9,7 +9,7 @@ export default function Register({ setError, error }) {
 
     e.preventDefault();
     axios
-      .post(`http://localhost:8080/register`, { name, pwd, dob })
+      .post(`http://linserv1.cims.nyu.edu:23203/register`, { name, pwd, dob })
       .then(() => {
         window.location = '/login';
       })
