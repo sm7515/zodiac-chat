@@ -25,12 +25,8 @@ function App(props) {
     <div className='App'>
       <Router>
         <Route exact path='/'>
-          {!uid ? (
-            <Register
-              setError={props.setError}
-              error={props.error}
-              setLogin={props.setLogin}
-            />
+          {!localStorage.getItem('uid') === props.user.id ? (
+            <Register setError={props.setError} error={props.error} />
           ) : (
             <Redirect to='/home' />
           )}
