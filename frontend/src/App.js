@@ -33,7 +33,8 @@ function App(props) {
         </Route>
 
         <Route exact path='/login'>
-          {localStorage.getItem('uid') !== props.user.id ? (
+          {props.user.id !== '' &&
+          localStorage.getItem('uid') !== props.user.id ? (
             <Login
               setError={props.setError}
               error={props.error}
