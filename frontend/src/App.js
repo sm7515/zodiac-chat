@@ -25,7 +25,7 @@ function App(props) {
     <div className='App'>
       <Router>
         <Route exact path='/'>
-          {!localStorage.getItem('uid') === props.user.id ? (
+          {localStorage.getItem('uid') !== props.user.id ? (
             <Register setError={props.setError} error={props.error} />
           ) : (
             <Redirect to='/home' />
@@ -33,7 +33,7 @@ function App(props) {
         </Route>
 
         <Route exact path='/login'>
-          {!uid ? (
+          {localStorage.getItem('uid') !== props.user.id ? (
             <Login
               setError={props.setError}
               error={props.error}
