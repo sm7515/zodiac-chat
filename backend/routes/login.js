@@ -14,6 +14,9 @@ router.post('/', (req, res) => {
     } else if (!user) {
       console.log("user doesn't exist");
       res.status(401).send("user doesn't exist");
+    } else if (req.session.id) {
+      console.log('already logged in');
+      res.status(401).send('Already loggedin');
     } else {
       bcrypt.compare(req.body.pwd, user.hash, (err, result) => {
         if (err) {
