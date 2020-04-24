@@ -21,7 +21,8 @@ class Message extends Component {
         <div className='profile-img' style={{ backgroundColor: `${imgBg}` }}>
           <img src={this.props.img} alt='zodiac-sign'></img>
         </div>
-        <p>{this.props.text}</p>
+        {this.props.text && <p>{this.props.text}</p>}
+        {this.props.gif && <img alt='gif' src={this.props.gif}></img>}
         <span className='timestamp'>
           <span>{this.props.name}</span>
           {time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()}

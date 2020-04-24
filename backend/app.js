@@ -22,6 +22,7 @@ app.use(function (req, res, next) {
   res.header(
     'Access-Control-Allow-Origin',
     'http://linserv1.cims.nyu.edu:23204',
+    // 'http://localhost:3001',
   ); // update to match the domain you will make the request from
   res.header(
     'Access-Control-Allow-Headers',
@@ -64,6 +65,20 @@ io.on('connection', (socket) => {
     });
   });
 
+  //Client sends a new gif
+  socket.on('new gif', function (data) {
+    // we tell the client to execute 'new message'
+    const gif = data[0];
+    const user = data[1];
+    io.emit('new message', {
+      gif: gif,
+      name: user.name,
+      img: user.img,
+      sign: user.sign,
+      timestamp: Date.now(),
+    });
+  });
+
   //Client sends a sign request
   socket.on('request sign', function (input) {
     const sign = input[0];
@@ -93,6 +108,9 @@ io.on('connection', (socket) => {
         text: `${name} (${sign}) has connected`,
         timestamp: Date.now(),
       });
+    } else {
+      socket.emit('socket in use');
+      console.log('inuse');
     }
   });
 

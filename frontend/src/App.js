@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
@@ -17,16 +17,11 @@ import Login from './components/login';
 import Home from './components/home';
 
 function App(props) {
-  let uid = localStorage.getItem('uid');
-  useEffect(() => {
-    uid = localStorage.getItem('uid');
-  }, [uid]);
   return (
     <div className='App'>
       <Router>
         <Route exact path='/'>
-          {props.user.id === '' ||
-          localStorage.getItem('uid') !== props.user.id ? (
+          {localStorage.getItem('uid') === '' ? (
             <Register setError={props.setError} error={props.error} />
           ) : (
             <Redirect to='/home' />
@@ -34,7 +29,7 @@ function App(props) {
         </Route>
 
         <Route exact path='/login'>
-          {props.user.id === '' ||
+          {localStorage.getItem('uid') === '' ||
           localStorage.getItem('uid') !== props.user.id ? (
             <Login
               setError={props.setError}
@@ -50,8 +45,7 @@ function App(props) {
         </Route>
 
         <Route exact path='/home'>
-          {props.user.id !== '' &&
-          localStorage.getItem('uid') === props.user.id ? (
+          {localStorage.getItem('uid') !== '' ? (
             <Home
               setLogin={props.setLogin}
               user={props.user}

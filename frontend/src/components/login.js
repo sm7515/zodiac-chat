@@ -15,7 +15,7 @@ export default function Login({
 
     e.preventDefault();
     axios
-      .post(`http://linserv1.cims.nyu.edu:23203/login`, { name, pwd })
+      .post(`${process.env.REACT_APP_API_URL}/login`, { name, pwd })
       .then((res) => {
         localStorage.setItem('uid', res.data.id);
         setName(res.data.name);

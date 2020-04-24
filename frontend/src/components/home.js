@@ -10,7 +10,7 @@ export default function Home({ setLogin, user, setImg, setSign, setName }) {
     uid = localStorage.getItem('uid');
     user.id = uid;
     uid !== '' &&
-      Axios.get(`http://linserv1.cims.nyu.edu:23203/user?id=${uid}`)
+      Axios.get(`${process.env.REACT_APP_API_URL}/user?id=${uid}`)
         .then((res) => {
           user.name = res.data.name;
           user.sign = res.data.sign;
