@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GiphyList from './giphyList';
 import colorSignMap from './colorSignMap';
+import { apiKey } from '../config';
 
 export default function Giphy({ socket, user, clicked }) {
   let [gifs, setGifs] = useState([]);
@@ -22,7 +23,7 @@ export default function Giphy({ socket, user, clicked }) {
   const fetchBySearch = () => {
     axios
       .get(
-        `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=ur59uiFSFXhPV9VS4FacayxkgdT6YNsQ&limit=24`,
+        `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${apiKey}&limit=24`,
       )
       .then((res) => {
         console.log(res.data);
@@ -35,9 +36,7 @@ export default function Giphy({ socket, user, clicked }) {
 
   const fetchTrending = () => {
     axios
-      .get(
-        `http://api.giphy.com/v1/gifs/trending?api_key=ur59uiFSFXhPV9VS4FacayxkgdT6YNsQ&limit=24`,
-      )
+      .get(`http://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=24`)
       .then((res) => {
         setData(res.data.data);
       })

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Messenger from './messenger';
 import Axios from 'axios';
+import { apiUrl } from '../config';
 
 export default function Home({ setLogin, user, setImg, setSign, setName }) {
   let uid = localStorage.getItem('uid');
@@ -10,7 +11,7 @@ export default function Home({ setLogin, user, setImg, setSign, setName }) {
     uid = localStorage.getItem('uid');
     user.id = uid;
     uid !== '' &&
-      Axios.get(`${process.env.REACT_APP_API_URL}/user?id=${uid}`)
+      Axios.get(`${apiUrl}/user?id=${uid}`)
         .then((res) => {
           user.name = res.data.name;
           user.sign = res.data.sign;

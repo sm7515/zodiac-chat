@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
-
+import { apiUrl } from '../config';
 import Message from './message';
 import Composer from './composer';
 import colorSignMap from './colorSignMap';
@@ -18,7 +18,7 @@ class Messenger extends Component {
 
   logout() {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/login/logout`, {
+      .post(`${apiUrl}/login/logout`, {
         id: this.props.user.id,
       })
       .then((res) => {
@@ -33,7 +33,7 @@ class Messenger extends Component {
   }
 
   componentDidMount() {
-    this.socket = io.connect(`${process.env.REACT_APP_API_URL}`);
+    this.socket = io.connect(`${apiUrl}`);
     this.socket.on('connect', () => {
       this.socket.emit('request sign', [
         this.props.user.sign,
