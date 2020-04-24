@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { apiUrl } from '../config';
 
 export default function Login({
   setError,
@@ -15,7 +16,7 @@ export default function Login({
 
     e.preventDefault();
     axios
-      .post(`${process.env.REACT_APP_API_URL}/login`, { name, pwd })
+      .post(`${apiUrl}/login`, { name, pwd })
       .then((res) => {
         localStorage.setItem('uid', res.data.id);
         setName(res.data.name);

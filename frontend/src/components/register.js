@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { apiUrl } from '../config';
 
 export default function Register({ setError, error }) {
   const handleSubmit = (e) => {
@@ -9,7 +10,7 @@ export default function Register({ setError, error }) {
 
     e.preventDefault();
     axios
-      .post(`${process.env.REACT_APP_API_URL}/register`, { name, pwd, dob })
+      .post(`${apiUrl}/register`, { name, pwd, dob })
       .then(() => {
         window.location = '/login';
       })
