@@ -17,11 +17,13 @@ import Login from './components/login';
 import Home from './components/home';
 
 function App(props) {
+  console.log(localStorage.getItem('uid'));
   return (
     <div className='App'>
       <Router>
         <Route exact path='/'>
-          {localStorage.getItem('uid') === '' ? (
+          {localStorage.getItem('uid') === null ||
+          localStorage.getItem('uid') === '' ? (
             <Register setError={props.setError} error={props.error} />
           ) : (
             <Redirect to='/home' />
@@ -29,7 +31,8 @@ function App(props) {
         </Route>
 
         <Route exact path='/login'>
-          {localStorage.getItem('uid') === '' ||
+          {localStorage.getItem('uid') === null ||
+          localStorage.getItem('uid') === '' ||
           localStorage.getItem('uid') !== props.user.id ? (
             <Login
               setError={props.setError}
@@ -45,7 +48,8 @@ function App(props) {
         </Route>
 
         <Route exact path='/home'>
-          {localStorage.getItem('uid') !== '' ? (
+          {localStorage.getItem('uid') !== '' &&
+          localStorage.getItem('uid') !== null ? (
             <Home
               setLogin={props.setLogin}
               user={props.user}
