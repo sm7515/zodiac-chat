@@ -6,7 +6,7 @@ const colorSignMap = {
   Leo: '#ffa359',
   Virgo: '#b08266',
   Libra: '#fdbebc',
-  Scorpio: '#242424',
+  Scorpio: '#C32148',
   Sagittarius: '#c0adef',
   Capricorn: '#666b66',
   Aquarius: '#80bfea',
