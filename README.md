@@ -4,7 +4,12 @@
 
 Zodiac Chat is an online chat room that allows users to chat with people of different zodiac signs.
 
-## Run
+## Deploy
+
+* served using nyu courant server
+* site url: http://linserv1.cims.nyu.edu:23204
+
+## Run locally
 
 ```javascript
 cd backend
@@ -41,7 +46,7 @@ An Example Sign:
 }
 ```
 
-## [Link to Commented First Draft Schema](./backend/db.js)
+## [Link to Schema](./backend/db.js)
 
 ## User Stories or Use Cases
 
@@ -50,6 +55,7 @@ An Example Sign:
 3. as a user, I can send messages to other users
 4. as a user, I can view the chat from other users
 5. as a user, I can respond to the messages I receive
+6. as a user, I can send gifs and stickers during chat
 
 ## Research Topics
 
@@ -60,10 +66,16 @@ An Example Sign:
 - (5 points) React.js
   - I'm going to use React.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
 
-## [Link to Initial Main Project File](backend/app.js)
+## [Link to Main Project File](backend/app.js)
 
 ## Annotations / References Used
 
 1. [socket.io](https://socket.io/get-started/chat/)
 2. [React.js](https://reactjs.org/tutorial/tutorial.html)
 3. [React Redux](https://react-redux.js.org/introduction/quick-start)
+4. [Giphy API](https://developers.giphy.com/docs/api/endpoint#search)
+
+## Future improvements
+ 1. add user profile function
+ 2. save chat history to database
+ 3. users can add other as friends
