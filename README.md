@@ -50,6 +50,7 @@ An Example Sign:
 3. as a user, I can send messages to other users
 4. as a user, I can view the chat from other users
 5. as a user, I can respond to the messages I receive
+6. as a user, I can send emojis and gits during chat
 
 ## Research Topics
 
