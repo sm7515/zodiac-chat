@@ -6,8 +6,8 @@ Zodiac Chat is an online chat room that allows users to chat with people of diff
 
 ## Deploy
 
-* served using nyu courant server
-* site url: http://linserv1.cims.nyu.edu:23204
+- served using nyu courant server
+- site url: http://linserv1.cims.nyu.edu:23204
 
 ## Run locally
 
@@ -76,6 +76,7 @@ An Example Sign:
 4. [Giphy API](https://developers.giphy.com/docs/api/endpoint#search)
 
 ## Future improvements
- 1. add user profile function
- 2. save chat history to database
- 3. users can add other as friends
+
+1.  add user profile function
+2.  save chat history to database
+3.  users can add other as friends
